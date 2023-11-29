@@ -142,7 +142,7 @@ function updateDisplayedPhrase(col) {
       const currentPhrase = goodbyePhrases[phraseIndex];
       phraseDisplay.textContent = currentPhrase;
     } else {
-      phraseDisplay.textContent = 'Waiting to play...'; // or any default message
+      phraseDisplay.textContent = ''; // or any default message
     }
   }
   
@@ -346,7 +346,7 @@ function updateDisplayedPhrase(col) {
           }
       });
   } else {
-      phraseDisplay.textContent = 'Waiting to play...'; // Set default message
+      phraseDisplay.textContent = ''; // Set default message
       phraseDisplay.style.backgroundColor = ''; // Reset background color
       phraseDisplay.style.color = ''; // Reset font color
   }
@@ -425,14 +425,7 @@ function updatePhraseDisplayAfterShuffle() {
 
     }
 }
-document.getElementById('menuButton').addEventListener('click', function() {
-  var player = document.getElementById('player');
-  if (player.style.left === '0px') {
-      player.style.left = '-100%'; // Hide
-  } else {
-      player.style.left = '0px'; // Show
-  }
-});
+
 
 
 document.getElementById('fullscreenToggle').addEventListener('click', toggleFullWindow);

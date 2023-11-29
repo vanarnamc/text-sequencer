@@ -227,22 +227,31 @@ button {
 
 
 /* Mobile styles */
-@media screen and (max-width: 600px) {
-    #menuButton {
-        display: block; /* Show the menu button on mobile */
+@media only screen and (max-width: 600px) {
+    :root {
+        --grid-column-count: 16; /* Adjust the number of columns for mobile */
+        --grid-cell-size: 8px; /* Smaller cell size for mobile */
+        --grid-gap: 2px; /* Smaller gap for mobile */
     }
-
-    #player {
-        position: fixed;
-        left: -100%; /* Start off-screen */
-        width: 80%; /* Width of the slide-in menu */
-        height: 100%;
-        background-color: #333;
-        transition: left 0.3s;
+    #playButton{
+        height: 18px !important;
     }
-    #currentPhrase {
-        width: 100%;
+    #stopButton{
+        height: 18px !important;
     }
+    #shuffleButton{
+        height: 18px !important;
+    }   
+    #clearButton{
+        height: 18px !important;
+    }   
+    #controls{
+        margin-top: 10px;
+    }
+    #title{
+        line-height:.9;
+    }
+   
 }
 
 /* Non-mobile styles */
