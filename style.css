@@ -1,0 +1,253 @@
+@font-face {
+    font-family: 'RomCompressed';
+    src: url(assets/ABCROMCompressed-Black-Trial.otf);
+}
+@font-face {
+    font-family: 'RomMono';
+    src: url(assets/ABCROMMono-Regular-Trial.otf);
+}
+:root {
+    --grid-column-count: 16; /* Number of columns */
+    --grid-cell-size: 35px; /* Width and height of each cell */
+    --grid-gap: 4px; /* Gap between cells */
+}
+
+body{
+    color: #909090;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+
+}
+
+#fullscreenToggle img {
+    width: auto; /* Adjust the size as needed */
+    height: 33px; /* Maintain aspect ratio */
+    
+   }
+
+   #fullscreenToggle:hover img {
+    filter: invert(50%); /* Adjust the degree to get closer to #88f */
+}
+
+#full-toggle {
+    position: fixed; /* Fix position relative to the viewport */
+    right: 0; /* Align to the right side */
+    bottom: 0; /* Align to the bottom */
+    z-index: 999999999999999; /* Ensure it's above other elements */
+    filter: invert(1);
+    margin: 20px
+  }
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-column-count), var(--grid-cell-size));
+    grid-template-rows: repeat(15, var(--grid-cell-size)); /* Adjust row count as needed */
+    gap: var(--grid-gap);
+}
+
+.grid-cell {
+    width: var(--grid-cell-size);
+    height: var(--grid-cell-size);
+    border: 1px solid black;
+    background: transparent;
+}
+
+.grid-cell.active {
+    background-color: #88f;
+}
+
+
+#fullscreenToggle {
+    display: flex;
+    margin-left: auto;
+    margin: 0 ; /* Center the full-toggle div in the player */
+padding: 0;
+    z-index: 1000; /* High z-index to ensure it's on top */
+    /* ... other styles ... */
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between; /* Aligns the child elements to the start (left) */
+    width: 510px; /* The calculated width of the grid */
+   align-items:center; /* Additional styling as needed */
+   gap: 10px;
+}
+/* Make sure the grid and controls div are the same width */
+#leftAlignedControls {
+    display: flex;
+    justify-content: start; /* Aligns the child elements to the start (left) */
+}
+
+.grid-cell.playing {
+    background-color: rgb(0, 0, 0); /* or any color of your choice for highlighting */
+}
+
+#mainContainer {
+    display: flex;
+    height: 100vh;
+}
+
+#clearButton {
+    height:43px !important;
+    margin-left: auto; /* This will push the clear button to the right within the controls container */
+}
+#playButton {
+    height:43px !important;
+}
+#stopButton {
+    height:43px !important;
+}
+#shuffleButton{
+    height: 53px !important;    
+}
+
+#player {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This centers the grid and controls vertically */
+    align-items: center;
+    position: relative; /* For absolute positioning of the full-screen toggle */
+    height: 100vh; /* Full viewport height */
+    width: 50vw;
+    background-color: #333; /* Assuming a dark theme as in the screenshot */
+}
+
+#controls button img {
+    width: 24px; /* Adjust the size as needed */
+    height: auto;
+}
+
+.word-animate {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+#currentPhrase {
+    font-family: "RomMono";
+    display: flex; /* Use flex to layout words */
+    flex-wrap: wrap; /* Allow items to wrap onto the next column */
+    align-content: stretch; /* Stretch lines across the cross-axis */
+    justify-content: space-between; /* Distribute space evenly along the main-axis */
+    background-color: rgb(0, 0, 0); /* Add background color or styles as needed */
+    color: #88f;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100vh; /* Set a specific height to allow justify-content to work */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    width: 50%; /* Take up half of the screen's width */
+    margin: 0 auto; /* Center the div on the page */
+
+  }
+
+
+.full-window {
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    right: 0; /* Ensures full width */
+    bottom: 0; /* Ensures full height */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Reset any margins */
+    z-index: 9999; /* Ensure it's on top */
+    display: flex; /* Keep the flex display */
+    flex-wrap: wrap; /* If you're using wrap in your original style */
+    align-content: stretch; /* Adjust as per your original style */
+    justify-content: space-between; /* Adjust as per your original style */
+    /* Add other properties as necessary to mimic the original style when full screen */
+}
+#footer {
+position: fixed;
+bottom: 40px;}
+
+#controls, #footer {
+    width: calc(var(--grid-cell-size) * var(--grid-column-count) + var(--grid-gap) * (var(--grid-column-count) - 1));
+    margin: 0px auto;
+    background: transparent;
+    /* ... other styles ... */
+}
+button {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically */
+    cursor: pointer;
+    padding: 0;
+    /* Other styling */
+}
+
+#controls button img {
+    width: auto; /* Uniform width */
+    max-height: 30px; /* Uniform height */
+    /* Additional styling */
+}
+
+#controls button:hover img {
+    filter: invert(50%); /* Adjust the degree to get closer to #88f */
+}
+#controls button img {
+    transition: filter 0.3s ease; /* Smooth transition for the filter */
+}
+
+/* Style for when full screen is active */
+.is-fullscreen {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    top: auto;
+    z-index: 9999; /* Ensure it's on top */
+}
+
+
+
+#title{
+    font-family: 'RomCompressed';
+
+    font-size: 30px;
+    color: #88f;
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+}
+#subTitle{
+    font-size: 16px;
+    font-weight: bold;
+    color: #88f;
+    margin-bottom: 0px;
+    padding: 0;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+
+/* Mobile styles */
+@media screen and (max-width: 600px) {
+    #menuButton {
+        display: block; /* Show the menu button on mobile */
+    }
+
+    #player {
+        position: fixed;
+        left: -100%; /* Start off-screen */
+        width: 80%; /* Width of the slide-in menu */
+        height: 100%;
+        background-color: #333;
+        transition: left 0.3s;
+    }
+    #currentPhrase {
+        width: 100%;
+    }
+}
+
+/* Non-mobile styles */
+@media screen and (min-width: 601px) {
+    #menuButton {
+        display: none; /* Hide the menu button on larger screens */
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes on the Mechanical Eye</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <button id="menuButton">Menu</button>
+
+    <div id="mainContainer">
+        <div id="player">
+            <div id="full-toggle">
+            <button id="fullscreenToggle">
+                <img src="assets/fullscreen.svg" alt="Fullscreen">
+            </button>
+        </div>
+
+            <div id="grid">
+                <!-- JavaScript will populate this grid -->
+            </div>
+            <div id="controls">
+                <button id="playButton">
+                    <img id="playButton" src="assets/play.svg" alt="Play">
+                </button>
+                <button id="stopButton">
+                    <img id="stopButton" src="assets/stop.svg" alt="Stop">
+                </button>
+                <button id="shuffleButton">
+                    <img id="shuffleButton" src="assets/shuffle.svg" alt="Shuffle">
+                </button>
+                <button id="clearButton">
+                    <img id="clearButton"src="assets/clear.svg" alt="Clear">
+                </button>
+            </div>
+            <div id="footer">
+                <div id="title">
+                    NOTES ON THE MECHANICAL EYE
+                </div>
+              
+
+            </div>
+        </div>
+        <div id="currentPhrase">Waiting to play...</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.38/Tone.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
